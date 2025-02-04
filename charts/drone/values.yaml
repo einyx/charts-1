@@ -8,7 +8,7 @@ hostAliases: []
 image:
   registry: docker.io
   repository: drone/drone
-  tag: 2.12.1
+  tag: "2.24"
   pullPolicy: IfNotPresent
 
 ## If you need to pull images from a private Docker image repository, pass in the name
@@ -187,18 +187,19 @@ env:
   ## REQUIRED: Set the user-visible Drone hostname, sans protocol.
   ## Ref: https://docs.drone.io/installation/reference/drone-server-host/
   ##
-  DRONE_SERVER_HOST: ""
+  DRONE_SERVER_HOST: "drone.wolf-anoles.ts.net"
   ## The protocol to pair with the value in DRONE_SERVER_HOST (http or https).
   ## Ref: https://docs.drone.io/installation/reference/drone-server-proto/
   ##
-  DRONE_SERVER_PROTO: http
+  DRONE_SERVER_PROTO: https
 
   ## REQUIRED: Set the secret secret token that the Drone server and its Runners will use
   ## to authenticate. This is commented out in order to leave you the ability to set the
   ## key via a separately provisioned secret (see existingSecretName above).
   ## Ref: https://docs.drone.io/installation/reference/drone-rpc-secret/
   ##
-  # DRONE_RPC_SECRET:
+  DRONE_RPC_SECRET: "090fcf10d567d42f052b8273bd8cc261"
+  DRONE_USER_CREATE: "username:einyx,admin:true"
 
   ## If you'd like to use a DB other than SQLite (the default), set a driver + DSN here.
   ## Ref: https://docs.drone.io/installation/storage/database/
@@ -229,8 +230,8 @@ env:
   ## GitHub-specific variables. See the provider docs here:
   ## Ref: https://docs.drone.io/installation/providers/github/
   ##
-  # DRONE_GITHUB_CLIENT_ID:
-  # DRONE_GITHUB_CLIENT_SECRET:
+  DRONE_GITHUB_CLIENT_ID: Ov23lifl1fsaOReEGtL5
+  DRONE_GITHUB_CLIENT_SECRET: e648d300020e0fab04ac00cd696c9206ed8ccc69
 
   ## GitLab-specific variables. See the provider docs here:
   ## Ref: https://docs.drone.io/installation/providers/gitlab/

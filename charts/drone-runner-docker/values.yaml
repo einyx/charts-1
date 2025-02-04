@@ -56,17 +56,16 @@ dind:
       mountPath: /var/lib/docker
       subPath: docker
   resources:
-    {}
     # We usually recommend not to specify default resources and to leave this as a conscious
     # choice for the user. This also increases chances charts run on environments with little
     # resources, such as Minikube. If you do want to specify resources, uncomment the following
     # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-    # limits:
-    #   cpu: 100m
-    #   memory: 128Mi
-    # requests:
-    #   cpu: 100m
-    #   memory: 128Mi
+    limits:
+      cpu: 2000m
+      memory: 2048Mi
+    requests:
+      cpu: 1000m
+      memory: 512Mi
   gracefulShutdownRetryPeriod: 60
 
 ## Values used only for the Drone Garbage Collector container
@@ -207,7 +206,7 @@ env:
   ## key via a separately provisioned secret (see extraSecretNamesForEnvFrom above).
   ## Ref: https://docs.drone.io/runner/docker/configuration/reference/drone-rpc-secret/
   ##
-  # DRONE_RPC_SECRET:
+  DRONE_RPC_SECRET: "090fcf10d567d42f052b8273bd8cc261"
 
   ## The hostname/IP (and optionally the port) for your Kubernetes runner. Defaults to the "drone"
   ## service that the drone server Chart creates by default.
